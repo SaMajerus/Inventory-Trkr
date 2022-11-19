@@ -25,22 +25,24 @@ function SackList(props){
   return (
     <React.Fragment>
       <hr/>
-      {props.ticketList.map((ticket) =>  //Loop thru the list passed down from 'SackControl'. 
+      {props.sackList.map((sack) =>  //Loop thru the list passed down from 'SackControl'. 
         <Sack
           whenSackClicked = { props.onSackSelection }
-          names={ticket.names}
-          location={ticket.location}
-          issue={ticket.issue}
-          id={ticket.id}
-          key={ticket.id}/>
+          name={sack.name}
+          origin={sack.origin}
+          roast={sack.roast}
+          price={sack.price}
+          poundsLeft={sack.poundsLeft}
+          id={sack.id}
+          key={sack.id}/>
       )}
     </React.Fragment>
   );
 }
 
-//Add propTypes for ticketList 
+//Add propTypes for sackList 
 SackList.propTypes = {
-  ticketList: PropTypes.array, 
+  sackList: PropTypes.array, 
   onSackSelection: PropTypes.func
 };
 

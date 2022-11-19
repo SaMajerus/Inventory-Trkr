@@ -12,7 +12,7 @@ class SackControl extends React.Component {
       formVisibleOnPage: false,
       mainSackList: [],
       selectedSack: null,
-      editing: false // new code
+      editing: false 
     };  
   }
 
@@ -22,7 +22,7 @@ class SackControl extends React.Component {
       this.setState({
         formVisibleOnPage: false,
         selectedSack: null,
-        editing: false // new code
+        editing: false 
       });   {/* This first conditional enables the Method to handle returning to the Queue from the Sack Detail page (and/or a component which is accessed via the Details page, like the Edit form). */} 
     } else {
       this.setState(prevState => ({

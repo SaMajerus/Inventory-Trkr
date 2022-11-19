@@ -7,10 +7,12 @@ function SackDetail(props){
   return (
     <React.Fragment>
       <h1>Sack Detail</h1>
-      <h3>{sack.location} - {sack.names}</h3>
-      <p><em>{sack.issue}</em></p>
-      <button onClick={ props.onClickingEdit }>Update Sack</button> { /* new code */ }
-      <button onClick={()=> props.onClickingDelete(sack.id) }>Close Sack</button>
+      <h3>{sack.name} - {sack.origin}</h3>
+      <p>Roast:  {sack.roast}</p>
+        <p><strong>Price (per LB):  {sack.price}</strong></p>
+        <p><em>LBs remaining:  {sack.poundsLeft}</em></p>
+      <button onClick={ props.onClickingEdit }>Update Sack</button>
+      <button onClick={()=> props.onClickingDelete(sack.id) }>Remove Empty Sack</button>
       <hr/>
     </React.Fragment>
   );
