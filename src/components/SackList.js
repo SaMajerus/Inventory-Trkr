@@ -1,9 +1,9 @@
 import React from "react";
-import Ticket from "./Ticket";
+import Sack from "./Sack";
 import PropTypes from "prop-types";
 
 /*
-const mainTicketList = [
+const mainSackList = [
   {
     names: 'Thato and Haley',
     location: '3A',
@@ -21,13 +21,13 @@ const mainTicketList = [
   }
 ];   */
 
-function TicketList(props){
+function SackList(props){
   return (
     <React.Fragment>
       <hr/>
-      {props.ticketList.map((ticket) =>  //Loop thru the list passed down from 'TicketControl'. 
-        <Ticket
-          whenTicketClicked = { props.onTicketSelection }
+      {props.ticketList.map((ticket) =>  //Loop thru the list passed down from 'SackControl'. 
+        <Sack
+          whenSackClicked = { props.onSackSelection }
           names={ticket.names}
           location={ticket.location}
           issue={ticket.issue}
@@ -39,9 +39,9 @@ function TicketList(props){
 }
 
 //Add propTypes for ticketList 
-TicketList.propTypes = {
+SackList.propTypes = {
   ticketList: PropTypes.array, 
-  onTicketSelection: PropTypes.func
+  onSackSelection: PropTypes.func
 };
 
-export default TicketList;
+export default SackList;

@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import { v4 } from 'uuid'; 
 import ReusableForm from "./ReusableForm";
 
-function NewTicketForm(props){
-  function handleNewTicketFormSubmission(event) {
+function NewSackForm(props){
+  function handleNewSackFormSubmission(event) {
     event.preventDefault();
-    props.onNewTicketCreation({
+    props.onNewSackCreation({
       names: event.target.names.value, 
       location: event.target.location.value, 
       issue: event.target.issue.value, 
@@ -17,16 +17,16 @@ function NewTicketForm(props){
   return (
     <React.Fragment>
       <ReusableForm 
-        formSubmissionHandler={handleNewTicketFormSubmission}
+        formSubmissionHandler={handleNewSackFormSubmission}
         buttonText="Help!" />
     </React.Fragment>
   );
 }
 
 
-NewTicketForm.propTypes = {
-  onNewTicketCreation: PropTypes.func
+NewSackForm.propTypes = {
+  onNewSackCreation: PropTypes.func
 };
 
 
-export default NewTicketForm;
+export default NewSackForm;

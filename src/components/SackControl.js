@@ -1,29 +1,29 @@
 import React from 'react';
-import NewTicketForm from './NewTicketForm';
-import EditTicketForm from './EditTicketForm';
-import TicketList from './TicketList';
-import TicketDetail from './TicketDetail'; 
+import NewSackForm from './NewSackForm';
+import EditSackForm from './EditSackForm';
+import SackList from './SackList';
+import SackDetail from './SackDetail'; 
 
-class TicketControl extends React.Component {
+class SackControl extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainTicketList: [],
-      selectedTicket: null,
+      mainSackList: [],
+      selectedSack: null,
       editing: false // new code
     };  
   }
 
   /* Handles mouse-click events. */
   handleClick = () => {  
-    if (this.state.selectedTicket != null) {
+    if (this.state.selectedSack != null) {
       this.setState({
         formVisibleOnPage: false,
-        selectedTicket: null,
+        selectedSack: null,
         editing: false // new code
-      });   {/* This first conditional enables the Method to handle returning to the Queue from the Ticket Detail page (and/or a component which is accessed via the Details page, like the Edit form). */} 
+      });   {/* This first conditional enables the Method to handle returning to the Queue from the Sack Detail page (and/or a component which is accessed via the Details page, like the Edit form). */} 
     } else {
       this.setState(prevState => ({
         formVisibleOnPage: !prevState.formVisibleOnPage,
@@ -31,43 +31,43 @@ class TicketControl extends React.Component {
     }
   }
 
-  /* Handles the form submission process (for adding a new ticket to the list). */
-  handleAddingNewTicketToList = (newTicket) => {   
-    const newMainTicketList = this.state.mainTicketList.concat(newTicket);
-    this.setState({mainTicketList: newMainTicketList,
+  /* Handles the form submission process (for adding a new sack to the list). */
+  handleAddingNewSackToList = (newSack) => {   
+    const newMainSackList = this.state.mainSackList.concat(newSack);
+    this.setState({mainSackList: newMainSackList,
                   formVisibleOnPage: false });
   }
 
-  /* Handles selection of a ticket with a given ID. */
-  handleChangingSelectedTicket = (id) => {
-    const selectedTicket = this.state.mainTicketList.filter(ticket => ticket.id === id)[0];
-    this.setState({selectedTicket: selectedTicket});
+  /* Handles selection of a sack with a given ID. */
+  handleChangingSelectedSack = (id) => {
+    const selectedSack = this.state.mainSackList.filter(sack => sack.id === id)[0];
+    this.setState({selectedSack: selectedSack});
   }
 
-  /* Handles deletion of a given ticket. */
-  handleDeletingTicket = (id) => {
-    const newMainTicketList = this.state.mainTicketList.filter(ticket => ticket.id !== id);
+  /* Handles deletion of a given sack. */
+  handleDeletingSack = (id) => {
+    const newMainSackList = this.state.mainSackList.filter(sack => sack.id !== id);
     this.setState({
-      mainTicketList: newMainTicketList,
-      selectedTicket: null
+      mainSackList: newMainSackList,
+      selectedSack: null
     });
   }
 
-  /* Handles showing the Edit form for a given ticket. */ 
+  /* Handles showing the Edit form for a given sack. */ 
   handleEditClick = () => {
     console.log("handleEditClick reached!");
     this.setState({editing: true});
   }
 
-  /* This method allows a given ticket to be Updated/Edited using the Edit form. */
-  handleEditingTicketInList = (ticketToEdit) => {
-    const editedMainTicketList = this.state.mainTicketList
-      .filter(ticket => ticket.id !== this.state.selectedTicket.id)
-      .concat(ticketToEdit);
+  /* This method allows a given sack to be Updated/Edited using the Edit form. */
+  handleEditingSackInList = (sackToEdit) => {
+    const editedMainSackList = this.state.mainSackList
+      .filter(sack => sack.id !== this.state.selectedSack.id)
+      .concat(sackToEdit);
     this.setState({
-        mainTicketList: editedMainTicketList,
+        mainSackList: editedMainSackList,
         editing: false,
-        selectedTicket: null
+        selectedSack: null
       });
   }
 
@@ -76,23 +76,23 @@ class TicketControl extends React.Component {
     let buttonText = null; 
     
     if (this.state.editing ) {      
-      currentlyVisibleState = <EditTicketForm ticket = {this.state.selectedTicket} onEditTicket = {this.handleEditingTicketInList} />  //Passes methods down to 'EditTicketForm' component as Props. 
-      buttonText = "Return to Ticket List";
-    } else if (this.state.selectedTicket != null) {
+      currentlyVisibleState = <EditSackForm sack = {this.state.selectedSack} onEditSack = {this.handleEditingSackInList} />  //Passes methods down to 'EditSackForm' component as Props. 
+      buttonText = "Return to Sack List";
+    } else if (this.state.selectedSack != null) {
       currentlyVisibleState = 
-      <TicketDetail 
-        ticket = {this.state.selectedTicket} 
-        onClickingDelete = {this.handleDeletingTicket} 
+      <SackDetail 
+        sack = {this.state.selectedSack} 
+        onClickingDelete = {this.handleDeletingSack} 
         onClickingEdit = {this.handleEditClick} />
-      buttonText = "Return to Ticket List";
+      buttonText = "Return to Sack List";
     }
     else if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewTicketForm onNewTicketCreation={this.handleAddingNewTicketToList}  />;
-      buttonText = "Return to Ticket List";
+      currentlyVisibleState = <NewSackForm onNewSackCreation={this.handleAddingNewSackToList}  />;
+      buttonText = "Return to Sack List";
     } else {
-      currentlyVisibleState = <TicketList ticketList={this.state.mainTicketList} onTicketSelection={this.handleChangingSelectedTicket} />;
-      // Because a User will actually be clicking on the ticket in the Ticket component, we will need to pass our new 'handleChangingSelectedTicket' method as a Prop.
-      buttonText = "Add Ticket";
+      currentlyVisibleState = <SackList sackList={this.state.mainSackList} onSackSelection={this.handleChangingSelectedSack} />;
+      // Because a User will actually be clicking on the sack in the Sack component, we will need to pass our new 'handleChangingSelectedSack' method as a Prop.
+      buttonText = "Add Sack";
     }
 
     return (
@@ -105,4 +105,4 @@ class TicketControl extends React.Component {
 
 }
 
-export default TicketControl;
+export default SackControl;
