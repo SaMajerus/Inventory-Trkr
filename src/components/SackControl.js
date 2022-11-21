@@ -12,7 +12,8 @@ class SackControl extends React.Component {
       formVisibleOnPage: false,
       mainSackList: [],
       selectedSack: null,
-      editing: false 
+      editing: false, 
+      editContents: false
     };  
   }
 
@@ -22,7 +23,8 @@ class SackControl extends React.Component {
       this.setState({
         formVisibleOnPage: false,
         selectedSack: null,
-        editing: false 
+        editing: false, 
+        editContents: false
       });   {/* This first conditional enables the Method to handle returning to the Queue from the Sack Detail page (and/or a component which is accessed via the Details page, like the Edit form). */} 
     } else {
       this.setState(prevState => ({
@@ -67,7 +69,27 @@ class SackControl extends React.Component {
     this.setState({
         mainSackList: editedMainSackList,
         editing: false,
-        selectedSack: null
+        selectedSack: null, 
+        editContents: false
+      });
+  }
+
+  /* Handles accessing the Edit form for a given sack (in order to decrement contents' value by 1). */ 
+  handleSaleClick = () => {
+    console.log("handleSaleClick reached!");
+    this.setState({editing: true, editContents: true});
+  }
+
+  /* This method decrements a given Sack's 'poundsLeft' prop by 1 (via the Edit form). */
+  handleSaleOfBeansInSack = (beansLeft) => {
+    const editedMainSackList = this.state.mainSackList
+      .filter(sack => sack.id !== this.state.selectedSack.id)
+      .concat(beansLeft);
+    this.setState({
+        mainSackList: editedMainSackList,
+        editing: false,
+        selectedSack: null, 
+        editContents: false
       });
   }
 
