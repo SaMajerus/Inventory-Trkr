@@ -8,9 +8,9 @@ function SackDetail(props){
     <React.Fragment>
       <h1>Sack Detail</h1>
       <h3>{sack.name} - {sack.origin}</h3>
-      <p>Roast:  {sack.roast}</p>
-        <p><strong>Price (per LB):  {sack.price}</strong></p>
-        <p><em>LBs remaining:  {sack.poundsLeft}</em></p>
+      <p>Roast: {sack.roast}</p>
+      <p>Price per LB (in USD): {sack.price}</p>
+      <p><em>Pounds remaining: {sack.poundsLeft}LBs</em></p>
       <button onClick={ props.onClickingEdit }>Update Sack</button>
 
       {/* if (sack.id.poundsLeft.value === 0) {   //Show 'Remove Empty Sack' button if no beans remain in given Sack.
