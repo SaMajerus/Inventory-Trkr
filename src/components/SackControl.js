@@ -114,7 +114,7 @@ class SackControl extends React.Component {
     } else {
       currentlyVisibleState = <SackList sackList={this.state.mainSackList} onSackSelection={this.handleChangingSelectedSack} />;
       // Because a User will actually be clicking on the sack in the Sack component, we will need to pass our new 'handleChangingSelectedSack' method as a Prop.
-      buttonText = "Add Sack";
+      buttonText = "Add New Sack";
     }
 
     return (

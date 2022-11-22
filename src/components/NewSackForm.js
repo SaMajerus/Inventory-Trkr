@@ -20,7 +20,7 @@ function NewSackForm(props){
     <React.Fragment>
       <ReusableForm 
         formSubmissionHandler={handleNewSackFormSubmission}
-        buttonText="Help!" />
+        buttonText="Add Sack" />
     </React.Fragment>
   );
 }
