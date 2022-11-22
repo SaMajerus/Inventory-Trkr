@@ -11,15 +11,15 @@ function ReusableForm(props) {
           placeholder='Bean Name' />
         <input
           type='text'
-          name='Origin'
+          name='origin'
           placeholder='Delivered from' />
         <input
           type='text'
-          name='Roast'
+          name='roast'
           placeholder='Coffee Roast type' />
         <input
           type='number'
-          name='Price'
+          name='price'
           placeholder='Price per LB' />
         <input
           type='number'
