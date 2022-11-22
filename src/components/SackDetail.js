@@ -28,7 +28,7 @@ function SackDetail(props){
 SackDetail.propTypes = {
   sack: PropTypes.object,
   onClickingDelete: PropTypes.func,
-  onClickingEdit: PropTypes.func // new code
+  onClickingEdit: PropTypes.func 
 };
 
 export default SackDetail;
