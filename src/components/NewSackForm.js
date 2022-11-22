@@ -7,9 +7,11 @@ function NewSackForm(props){
   function handleNewSackFormSubmission(event) {
     event.preventDefault();
     props.onNewSackCreation({
-      names: event.target.names.value, 
-      location: event.target.location.value, 
-      issue: event.target.issue.value, 
+      name: event.target.name.value, 
+      origin: event.target.origin.value, 
+      roast: event.target.roast.value, 
+      price: event.target.price.value, 
+      poundsLeft: event.target.poundsLeft.value,
       id: v4()
     });
   }
@@ -23,10 +25,8 @@ function NewSackForm(props){
   );
 }
 
-
 NewSackForm.propTypes = {
   onNewSackCreation: PropTypes.func
 };
-
 
 export default NewSackForm;
