@@ -28,6 +28,7 @@ function SackList(props){
       {props.sackList.map((sack) =>  //Loop thru the list passed down from 'SackControl'. 
         <Sack
           whenSackClicked = { props.onSackSelection }
+          onClickingDecrement = { props.editSackContents }
           name={sack.name}
           origin={sack.origin}
           roast={sack.roast}
@@ -43,7 +44,8 @@ function SackList(props){
 //Add propTypes for sackList 
 SackList.propTypes = {
   sackList: PropTypes.array, 
-  onSackSelection: PropTypes.func
+  onSackSelection: PropTypes.func, 
+  editSackContents: PropTypes.func
 };
 
 export default SackList;

@@ -12,8 +12,7 @@ class SackControl extends React.Component {
       formVisibleOnPage: false,
       mainSackList: [],
       selectedSack: null,
-      editing: false/*, 
-      editContents: false*/
+      editing: false
     };  
   }
 
@@ -23,8 +22,7 @@ class SackControl extends React.Component {
       this.setState({
         formVisibleOnPage: false,
         selectedSack: null,
-        editing: false/*, 
-        editContents: false*/
+        editing: false
       });   {/* This first conditional enables the Method to handle returning to the Queue from the Sack Detail page (and/or a component which is accessed via the Details page, like the Edit form). */} 
     } else {
       this.setState(prevState => ({
@@ -64,34 +62,14 @@ class SackControl extends React.Component {
   /* This method allows a given sack to be Updated/Edited using the Edit form. */
   handleEditingSackInList = (sackToEdit) => {
     const editedMainSackList = this.state.mainSackList
-      .filter(sack => sack.id !== this.state.selectedSack.id)
+      .filter(sack => sack.id !== sackToEdit.id)
       .concat(sackToEdit);
     this.setState({
         mainSackList: editedMainSackList,
         editing: false,
-        selectedSack: null, 
-        editContents: false
+        selectedSack: null
       });
   }
-
-  /* Handles accessing the Edit form for a given sack (in order to decrement contents' value by 1). */ 
-  // handleSaleClick = () => {
-  //   console.log("handleSaleClick reached!");
-  //   this.setState({editing: true, editContents: true});
-  // }
-
-  /* This method decrements a given Sack's 'poundsLeft' prop by 1 (via the Edit form). */
-  // handleSaleOfBeansInSack = (beansLeft) => {
-  //   const editedMainSackList = this.state.mainSackList
-  //     .filter(sack => sack.id !== this.state.selectedSack.id)
-  //     .concat(beansLeft);
-  //   this.setState({
-  //       mainSackList: editedMainSackList,
-  //       editing: false,
-  //       selectedSack: null, 
-  //       editContents: false
-  //     });
-  // }
 
   render(){
     let currentlyVisibleState = null;
@@ -112,7 +90,7 @@ class SackControl extends React.Component {
       currentlyVisibleState = <NewSackForm onNewSackCreation={this.handleAddingNewSackToList}  />;
       buttonText = "Return to Sack List";
     } else {
-      currentlyVisibleState = <SackList sackList={this.state.mainSackList} onSackSelection={this.handleChangingSelectedSack} />;
+      currentlyVisibleState = <SackList sackList={this.state.mainSackList} onSackSelection={this.handleChangingSelectedSack} editSackContents={this.handleEditingSackInList}/>;
       // Because a User will actually be clicking on the sack in the Sack component, we will need to pass our new 'handleChangingSelectedSack' method as a Prop.
       buttonText = "Add New Sack";
     }
@@ -120,7 +98,7 @@ class SackControl extends React.Component {
     return (
       <React.Fragment>
         {currentlyVisibleState}
-        <button onClick={this.handleClick}>{buttonText}</button> { /* new code */ }
+        <button onClick={this.handleClick}>{buttonText}</button> 
       </React.Fragment>
     );
   }

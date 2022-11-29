@@ -7,7 +7,7 @@
 //   // const currLbsLeft = sack.poundsLeft; 
 //   const newLbsLeft = currLbsLeft - 1; 
 
-//   /* The following function "captures Form values and triggers the 'handleEditingSackInList' method in 'SackControl'. ...", (Lsn 38, "Behavior #2" -> "Add Event Handler in 'EditSackForm' Along with Function to Capture Form Values"). */
+//   /* The following function "captures Form values and triggers the 'handleEditingSackInList' method in 'SackControl'. ...", (Lsn 38, ''Behavior #2'' -> ''Add Event Handler in 'EditSackForm' Along with Function to Capture Form Values''). */
 //   // function handleEditSackFormSubmission(event) {
 //   //   event.preventDefault();
 //   //   props.onEditSack({names: event.target.names.value, location: event.target.location.value, issue: event.target.issue.value, id: sack.id});

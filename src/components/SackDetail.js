@@ -19,7 +19,7 @@ function SackDetail(props){
         <button onClick={()=> props.onClickingDecrement(sack.id) }>Sell 1 Pound</button>
       } */}
       
-      <button onClick={()=> props.onClickingDelete(sack.id) }>Remove Empty Sack</button>
+      <button onClick={()=> onClickingDelete(sack.id) }>Remove Empty Sack</button>
       <hr/>
     </React.Fragment>
   );
