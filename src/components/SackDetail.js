@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function SackDetail(props){
-  const { sack, onClickingDelete } = props; 
+  const { sack, onClickingDelete, onClickingEdit } = props; 
 
   return (
     <React.Fragment>
@@ -11,7 +11,7 @@ function SackDetail(props){
       <p>Roast: {sack.roast}</p>
       <p>Price per LB (in USD): {sack.price}</p>
       <p><em>Pounds remaining: {sack.poundsLeft}LBs</em></p>
-      <button onClick={ props.onClickingEdit }>Update Sack</button>
+      <button onClick={ onClickingEdit(sack.id) }>Update Sack</button>
 
       {/* if (sack.id.poundsLeft.value === 0) {   //Show 'Remove Empty Sack' button if no beans remain in given Sack.
         <button onClick={()=> props.onClickingDelete(sack.id) }>Remove Empty Sack</button>
