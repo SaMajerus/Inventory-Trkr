@@ -2,7 +2,7 @@
 
 #### By Sam Majerus
 
-#### A web application that a local Coffee Shop uses to manage/track their currently-available Inventory of Coffee Bean Sacks. 
+#### A web application that a Coffee Shop uses to manage/track their currently-available Inventory of Coffee Bean Sacks. 
 <br>
 
 ## Technologies Used
@@ -17,7 +17,7 @@
 * React Redux library 
 * JSON
 * Cascading Style Sheets (CSS)
-* Git Bash (Used in: Local Cmd-line Terminal, navigation of local directories)
+* Git BASH (Used in: Local Cmd-line Terminal, navigation of local directories)
 * GitHub (Remote repositories)
 * Draw.io (Diagram(s) of the application's React components.  [Such files contain the end-tag '.drawio' in their name]) 
 <br><br>
@@ -26,15 +26,17 @@
 
 ## Description
 
-<!-- The User is greeted with a Splash page. From here, the User can navigate to one of 4 places: a list of Treats, a list of Flavors, an Order form, or a 'Create Account or Log-In' page. Anonymous visitors have read permissions for the whole site. Only users with Accounts created have Create/Read/Update/Delete (CRUD) permissions.   
-In the works:   an Admin account is the only one with full CRUD permissions.   Thus, normal user account for customers only has CRUD permissions for Orders they submit whilst Signed In.  Anonymous visitors have Read permissions for the site, as before. -->
+The User is greeted with a Splash page listing their current Inventory. For a given Sack, they can Sell 1 Pound of Beans by simply clicking a button.  The application has full Create-Read-Update-Delete (CRUD) functionality. 
+A full Sack has 130 LBs of coffee beans of a specified type.  Once the amount of remaining beans in the Sack reaches 0 LBs, the program will not decrement the value any farther.  At this point, the user can choose to delete that Sack or just leave it alone.  
+
+Planned additions:  Add a hidden button for each Sack in the list view with the label "Hide Sack" or "Delete Sack".  It has the same functionality as the button of the same/similar name that is found on a given Sack's Details page, but <em>only</em> becomes visible once the Sack no longer has any Coffee Beans remaining. 
 <br><br> 
 
 
 
 ## Setup/Installation Requirements
 
-* All that's required to run this application -- at minimum -- is: a decently-performing laptop, and a reliable Internet connection. (The latter is really only required for 'Cloning from GitHub' this time around, however.) 
+* All that's required to run this application -- at minimum -- is: a decently-performing laptop, and a reliable Internet connection.  
 
 * To Clone the program from the GitHub repo to your local machine:
 
@@ -53,14 +55,13 @@ In the works:   an Admin account is the only one with full CRUD permissions.   T
 
 * Running the Program 
   
-  * In your GIT BASH command line, enter this command:  'npm run start' .   The files will be compiled and then the application will be started. 
-  In the terminal, once the last line of text reads    ''Ctrl-C to end the Application'',  press Ctrl & Left-click the 'localhost:5000' link. A new tab will open in your browser -- and the rest should be self-explanatory. 
+  * In your Git BASH command line, enter the command  'npm run start' .   The files will be compiled and then the application will be started. Once a new tab opens in your browser, the rest should be self-explanatory. 
 
   The localhost server application will shut down once the user presses 'Ctrl-C' with the terminal selected.  To run the program again after a given session ends, simply reenter  'npm run start'  as before.
 <br><br>
 
 
-* If you get an error, here are Troubleshooting steps to try (In Order): 
+* If you get an error, here are Troubleshooting steps to try <em>(In Order)</em>: 
   * 9 times out of 10, an error message will appear if you try to run the program whilst being in the wrong directory location.  
   To make sure you're in the right place, do the following-- 
     * In your Git Bash command line, enter the command  'pwd'.  The Path leading to your current Folder (a.k.a. Directory) location will be printed out.   
@@ -70,7 +71,7 @@ In the works:   an Admin account is the only one with full CRUD permissions.   T
 
   * Still not working?  Save a copy of this document, then move the Program's folder to the Recycle bin and Delete it. Then, try installing it from GitHub again using the above steps. 
 
-  * If it STILL won't work:  Please don't hesitate to reach out via Email.  In addition to uncropped screenshots of the issue (send them as Attachments), please also include your Contact Info (preferably with the best method for contacting you).   This allows me to better assist you with Troubleshooting.  
+  * If it <em>still</em> won't work:  Please don't hesitate to reach out via Email.  In addition to uncropped screenshots of the issue (send them as Attachments), please also include your Contact Info (preferably with the best method for contacting you).   This allows me to better assist you with Troubleshooting.  
 <br><br>
 
  
@@ -133,15 +134,6 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
 ## Learn More
 
