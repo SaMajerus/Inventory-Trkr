@@ -65,10 +65,10 @@ class SackControl extends React.Component {
       .filter(sack => sack.id !== sackToEdit.id)
       .concat(sackToEdit);
     this.setState({
-        mainSackList: editedMainSackList,
-        editing: false,
-        selectedSack: null
-      });
+      mainSackList: editedMainSackList,
+      editing: false,
+      selectedSack: null
+    });
   }
 
   render(){
