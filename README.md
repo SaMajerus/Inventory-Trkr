@@ -87,7 +87,10 @@ Planned additions:  Add a hidden button for each Sack in the list view with the 
 
 
 ## Known Bugs
-* N/A
+* If 2 or more Sacks exist in a list, and the User clicks the Sell button for one of them (in the List view), then that Sack is pushed to the bottom, while the others move up one.   (This doesn't happen when there's just one Sack in the List, of course.) 
+<!-- * If one field is edited for a Sack, but the others are left blank, then those fields will be reset in addition to the edited field. [Fixed with Hooks] -->
+
+* When creating a new Sack, the initial value for the 'poundsLeft' property is set to 130, but the Input field still exists on the form page.  (If/when I figure out how to use CSS to hide that Input Box for the NewSackForm only, I'll implement that.   All the User needs to know is that the initial value of the Sack will always be 130 LBs, regardless of what value they enter.) 
 <br>
 
 
