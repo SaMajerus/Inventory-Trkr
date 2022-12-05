@@ -25,7 +25,7 @@ function SackList(props){
   return (
     <React.Fragment>
       <hr/>
-      {props.sackList.map((sack) =>  //Loop thru the list passed down from 'SackControl'. 
+      {props.sackList.sort().map((sack) =>  //Loop thru the list passed down from 'SackControl'. 
         <Sack
           whenSackClicked = { props.onSackSelection }
           onClickingDecrement = { props.editSackContents }
