@@ -14,6 +14,7 @@ function EditSackForm(props){
   return (
     <React.Fragment>
       <ReusableForm 
+        currSack={sack}
         formSubmissionHandler={handleEditSackFormSubmission}  
         buttonText="Update Sack" />
     </React.Fragment>
