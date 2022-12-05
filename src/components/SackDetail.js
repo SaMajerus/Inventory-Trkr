@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 function SackDetail(props){
   const { sack, onClickingDelete, onClickingEdit } = props; 
 
+  // console.log(`Rendering 'Sack Detail page' for ${sack.id}`);
   return (
     <React.Fragment>
       <h1>Sack Detail</h1>
@@ -11,7 +12,7 @@ function SackDetail(props){
       <p>Roast: {sack.roast}</p>
       <p>Price per LB (in USD): {sack.price}</p>
       <p><em>Pounds remaining: {sack.poundsLeft}LBs</em></p>
-      <button onClick={ onClickingEdit(sack.id) }>Update Sack</button>
+      <button onClick={() => onClickingEdit(sack.id) }>Update Sack</button>
 
       {/* if (sack.id.poundsLeft.value === 0) {   //Show 'Remove Empty Sack' button if no beans remain in given Sack.
         <button onClick={()=> props.onClickingDelete(sack.id) }>Remove Empty Sack</button>
@@ -19,7 +20,7 @@ function SackDetail(props){
         <button onClick={()=> props.onClickingDecrement(sack.id) }>Sell 1 Pound</button>
       } */}
       
-      <button onClick={()=> onClickingDelete(sack.id) }>Remove Empty Sack</button>
+      <button onClick={()=> onClickingDelete(sack.id) }>Remove Sack</button>
       <hr/>
     </React.Fragment>
   );
