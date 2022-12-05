@@ -11,7 +11,7 @@ function NewSackForm(props){
       origin: event.target.origin.value, 
       roast: event.target.roast.value, 
       price: event.target.price.value, 
-      poundsLeft: event.target.poundsLeft.value,
+      poundsLeft: 130,  //Will set initial value to 130, regardless of the User's input. 
       id: v4()
     });
   }
